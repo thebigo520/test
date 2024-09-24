@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问题答案验证</title>
+    <!-- 引用 CSS 文件 -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <!-- 顶部图片 -->
+    <img src="top-image.jpg" alt="顶部图片" id="top-image">
+
+    <div class="container">
+        <div class="question">
+            <label for="answer1">问题1: 2 + 3 = ?</label>
+            <input type="number" id="answer1" />
+        </div>
+
+        <div class="question">
+            <label for="answer2">问题2: 3 + 3 = ?</label>
+            <input type="number" id="answer2" />
+        </div>
+
+        <div class="question">
+            <label for="answer3">问题3: 6 + 2 = ?</label>
+            <input type="number" id="answer3" />
+        </div>
+
+        <button onclick="checkAnswers()">提交</button>
+
+        <div class="result" id="result"></div>
+
+        <div id="random-number"></div>
+    </div>
+
+    <!-- 底部图片 -->
+    <img src="bottom-image.jpg" alt="底部图片" id="bottom-image">
+
+    <!-- 引用 JavaScript 文件 -->
+    <script src="index.js"></script>
+
+</body>
+</html>
