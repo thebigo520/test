@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问题答案验证</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center; /* 让内容居中 */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .question {
+            margin: 10px 0;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+        #random-number {
+            margin-top: 30px;
+            font-size: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部图片 -->
+    <img src="top-image.jpg" alt="顶部图片" id="top-image">
+
+    <div class="container">
+        <div class="question">
+            <label for="answer1">问题1: 2 + 3 = ?</label>
+            <input type="number" id="answer1" />
+        </div>
+
+        <div class="question">
+            <label for="answer2">问题2: 3 + 3 = ?</label>
+            <input type="number" id="answer2" />
+        </div>
+
+        <div class="question">
+            <label for="answer3">问题3: 6 + 2 = ?</label>
+            <input type="number" id="answer3" />
+        </div>
+
+        <button onclick="checkAnswers()">提交</button>
+
+        <div class="result" id="result"></div>
+
+        <div id="random-number"></div>
+    </div>
+
+    <!-- 底部图片 -->
+    <img src="bottom-image.jpg" alt="底部图片" id="bottom-image">
+
+    <script>
+        function checkAnswers() {
+            const answer1 = parseInt(document.getElementById('answer1').value);
+            const answer2 = parseInt(document.getElementById('answer2').value);
+            const answer3 = parseInt(document.getElementById('answer3').value);
+
+            if (answer1 === 5 && answer2 === 6 && answer3 === 8) {
+                document.getElementById('result').textContent = '答案全部正确！';
+                showRandomNumber();
+            } else {
+                document.getElementById('result').textContent = '请检查您的答案，部分答案错误。';
+                document.getElementById('random-number').textContent = '';
+            }
+        }
+
+        function showRandomNumber() {
+            const numbers = [
+                '123456', '789012', '345678', '901234', '567890',
+                '234567', '890123', '456789', '123789', '456123'
+            ];
+            const randomIndex = Math.floor(Math.random() * numbers.length);
+            document.getElementById('random-number').textContent = '随机数字: ' + numbers[randomIndex];
+        }
+    </script>
+
+</body>
+</html>
